@@ -1,3 +1,3 @@
-for file in {.alias,.prompt,.macos} ; do
+for file in {.alias,.prompt,.macos,.env} ; do
     source $file
 done

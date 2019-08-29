@@ -32,6 +32,9 @@ brew install node
 # Python 3
 brew install python
 
+# Jupyter
+brew install jupyter
+
 # ---------------------------------------------
 # Useful tools
 # ---------------------------------------------
