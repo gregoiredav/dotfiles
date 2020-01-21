@@ -4,7 +4,16 @@ link () {
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 		for file in $( ls -A | grep -vE '\.git$|.*\.sh$|.*\.md$' ) ; do
+		    if [ -f $file ]
+                    then
+                        read -p "${file} already exists, overwrite? (y/n)" yn
+                        case $yn in
+			    [yY]* )  rm "$HOME/$file"; echo "existing $file deleted"; ln -sv "$PWD/$file" "$HOME";;
+			    [nN]* ) "existing $file was kept";;
+		        esac
+		    else
 			ln -sv "$PWD/$file" "$HOME"
+                    fi
 		done
 		echo "Symlinking complete"
 	else
