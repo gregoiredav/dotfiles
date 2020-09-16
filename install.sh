@@ -22,7 +22,7 @@ link () {
 	fi
 }
 
-install_tools () {
+install_mac_tools () {
 	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
 		echo "This utility will install useful utilities using Homebrew"
 		echo "Proceed? (y/n)"
@@ -38,5 +38,16 @@ install_tools () {
 	fi
 }
 
+install_ruby () {
+	echo "Install ruby with RVM? (y/n)"
+	read resp
+	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+		sh ruby.sh
+	else
+		echo "Ruby installation cancelled"
+	fi
+}
+
 link
-install_tools
+install_mac_tools
+install_ruby
